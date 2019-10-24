@@ -1,3 +1,10 @@
+/*
+* JavaScript. Level 1. Homework 5
+* Zaur Malakhov, dated 2019-10-24
+* */
+
+// http://min-prices.aviasales.ru/calendar_preload?origin=MOW&destination=NCE&depart_date=2019-10-24&one_way=true
+
 const response = {
     "errors": {"Amadeus": "Some error occured"},
     "current_depart_date_prices": [],
@@ -3060,3 +3067,20 @@ for (let ob of best_prices){
 
 console.log(goodFly);
 
+/*
+* получаем такой ответ в консоль
+* { price: 2753,
+  fly:
+   { value: 2753,
+     trip_class: 0,
+     show_to_affiliates: false,
+     return_date: null,
+     origin: 'MOW',
+     number_of_changes: 1,
+     gate: 'Kiwi.com',
+     found_at: '2019-10-24T04:52:09',
+     distance: 2539,
+     destination: 'NCE',
+     depart_date: '2019-12-18',
+     actual: true } }
+* */
