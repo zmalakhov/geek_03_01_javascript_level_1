@@ -1,7 +1,7 @@
 const li = [1, 2, 3, 4];
 
 // цикл for in в теле получает индекс массива или ключи для объектов
-// цикл for in в теле получает элементы массива, для объектов не работает
+// цикл for of в теле получает элементы массива, для объектов не работает
 
 for (let n in li) {
     console.log(n + ": " + li[n]);
@@ -24,7 +24,7 @@ const films = [
     {name: "Один дома", money: 4e5 + 9e4},
 ];
 let moneyExtra = 0;
-for(let film of films){
+for (let film of films) {
     moneyExtra += film.money;
 }
 console.log(moneyExtra);
