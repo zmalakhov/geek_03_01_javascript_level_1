@@ -3040,15 +3040,6 @@ const response = {
     }]
 };
 
-const keys = Object.keys(response);
-
-console.log(keys);
-
-
-// if (response.hasOwnProperty("best_prices")){
-//     console.log(response.best_prices);
-// }
-
 const best_prices = response.best_prices;
 
 let goodPrice;
@@ -3084,3 +3075,6 @@ console.log(goodFly);
      depart_date: '2019-12-18',
      actual: true } }
 * */
+
+
+
