@@ -4,13 +4,17 @@ class Bird {
         this.points = 0;
         this.wasEaten = false;
     }
+    eat(birdToEat){
+        this.points++;
+        birdToEat.wasEaten = true;
+        console.log("" + this.name + " eat " + birdToEat.name);
+    }
 }
 
 const birds = [];
 
 for (let i = 1; i <= 10; i++) {
     let bird = new Bird("Bird " + i);
-    //console.log(bird);
     birds.push(bird);
 }
 
@@ -24,9 +28,9 @@ do {
     let indexBird = getRandomInt(0, birds.length-1);
     let indexBirdToEat = indexBird === 0 ? indexBird+1 : indexBird-1;
 
-    birds[indexBird].points++;
-    birds[indexBirdToEat].wasEaten = true;
+    birds[indexBird].eat(birds[indexBirdToEat]);
     birds.splice(indexBirdToEat, 1);
+
 } while (birds.length > 1);
 
 console.log(birds);
