@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn</title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="class" id="iden">
+        hello
+    </div>
+
+    <script>
+        // getElementById - возвращает элемент по идентификатору - один элемент
+        //const firstEl = document.getElementById("iden");
+
+        // getElementsByClassName - возвращает коллекцию элементов
+        //const firstEl = document.getElementsByClassName("class");
+
+        // querySelector - можно получать элемент или элементы при помощи разных селекторов
+        const firstEl = document.querySelector("div.class");
+        firstEl.innerText = "Hi";
+        console.log(firstEl);
+    </script>
+</body>
+</html>
