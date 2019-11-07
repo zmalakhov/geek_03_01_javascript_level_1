@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn</title>
+
+    <style>
+        .added {
+            color: red;
+            background-color: #dddddd;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="class" id="iden">
+    hello
+</div>
+
+</body>
+<script>
+    // querySelector - можно получать элемент или элементы при помощи разных селекторов
+    const firstEl = document.querySelector("div.class");
+    firstEl.innerHTML = "I'm <strong>here</strong>!";
+    firstEl.classList.add("added");
+
+    // добавить div
+    const body = document.querySelector("body");
+    body.innerHTML += "<div class='added'>ddd</div>";
+
+    const newEl = document.createElement("div");
+    newEl.innerText = "I'm here 3";
+    newEl.classList.add("added");
+    body.appendChild(newEl);
+
+</script>
+
+</html>
