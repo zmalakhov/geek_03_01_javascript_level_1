@@ -7,6 +7,11 @@
         body{
             font-size: 50px;
         }
+        .added{
+            color: red;
+            background-color: #dddddd;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -25,7 +30,15 @@
         const firstEl = document.querySelector("div.class");
         firstEl.innerText = "Hi";
         firstEl.innerHTML = "I'm <strong>here</strong>!";
-        firstEl.style.color = "red";
+
+        // firstEl.style.color = "red";
+        // // firstEl.style.backgroundColor = "blue";
+        // firstEl.style.backgroundColor = "#ddd";
+        // firstEl.style.padding = "10px";
+
+        firstEl.classList.add("added");
+
+
 
         console.log(firstEl);
     </script>
