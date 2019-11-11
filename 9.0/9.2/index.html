@@ -7,28 +7,34 @@
         body {
             background-color: #efefef;
         }
+
         section {
             width: 500px;
             margin: 60px auto;
             background: none;
         }
+
         .categories, .films {
             border: 1px solid #dddddd;
             margin: 15px 0;
             background-color: white;
         }
+
         .categories {
             display: flex;
             justify-content: space-around;
         }
+
         .category {
             padding: 15px 30px;
             cursor: pointer;
             transition: background 1s;
         }
+
         .category:hover {
-            background-color: rgba(221,221,230, 0.5);
+            background-color: rgba(122, 115, 230, 0.5);
         }
+
         .film {
             margin: 20px 10px;
             padding-bottom: 10px;
@@ -37,19 +43,34 @@
         }
 
     </style>
+    <script src="script.js"></script>
+    <script>
+        function onClick(){
+            const films = getFilmsByCategory("Юмор");
+            for (let film of films) {
+                const newEl = document.createElement("div");
+                newEl.classList.add("film");
+                newEl.innerText = film.name;
+                document.querySelector(".films").appendChild(newEl);
+            }
+        }
+
+        // document.addEventListener("DOMContentLoaded", function () {
+        // });
+    </script>
 </head>
 <body>
-    <section>
-        <div class="categories">
-            <div class="category">Юмор</div>
-            <div class="category">Хоррор</div>
-        </div>
-        <div class="films">
-            <div class="film">Один дома 1</div>
-            <div class="film">Один дома 2</div>
-            <div class="film">Один дома 3</div>
-        </div>
-    </section>
+<section>
+    <div class="categories">
+        <div class="category" onclick="onClick()">Юмор</div>
+        <div class="category">Хоррор</div>
+    </div>
+    <div class="films">
+<!--        <div class="film">Один дома 1</div>-->
+<!--        <div class="film">Один дома 2</div>-->
+<!--        <div class="film">Один дома 3</div>-->
+    </div>
+</section>
 
 </body>
 </html>
