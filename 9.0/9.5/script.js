@@ -28,12 +28,12 @@ class Film {
 }
 
 films.push(new Film("Титаник", 0));
-films[0].addComment("хороший фильм", "user", 4);
-films[0].addComment("относительно милый фильм", "user", 3);
+films[0].addComment("хороший фильм", "Анна", 4);
+films[0].addComment("относительно милый фильм", "Лизавета", 3);
 
 films.push(new Film("Один дома", 0));
-films[1].addComment("смешной фильм", "user", 5);
-films[1].addComment("совсем не смешной фильм", "user", 1);
+films[1].addComment("смешной фильм", "Илья", 5);
+films[1].addComment("совсем не смешной фильм", "Антошка", 1);
 
 films.push(new Film("Ужас", 1));
 films.push(new Film("Гарри Поттер", 2));
