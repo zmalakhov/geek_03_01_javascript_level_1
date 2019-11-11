@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Киноучет</title>
+    <style>
+        body {
+            background-color: #efefef;
+        }
+
+        section {
+            width: 600px;
+            margin: 60px auto;
+            background: none;
+        }
+
+        .categories, .films {
+            border: 1px solid #dddddd;
+            margin: 15px 0;
+            background-color: white;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .category {
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: background 1s;
+        }
+
+        .category:hover {
+            background-color: rgba(122, 115, 230, 0.5);
+        }
+
+        .film {
+            margin: 20px 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            border-bottom: 1px dotted #333333;
+        }
+
+    </style>
+    <script src="script.js"></script>
+    <script>
+
+
+        // document.addEventListener("DOMContentLoaded", function () {
+        // });
+        document.addEventListener("DOMContentLoaded", function () {
+            for (let category of categories) {
+                const newEl = document.createElement("div");
+                newEl.classList.add("category");
+                newEl.innerText = category;
+                newEl.addEventListener("click", function () {
+                    onCategoryChoice(category);
+                });
+                document.querySelector(".categories").appendChild(newEl);
+            }
+        });
+
+
+        function onCategoryChoice(categoryName){
+            document.querySelector(".films").innerHTML="";
+            const films = getFilmsByCategory(categoryName);
+            for (let film of films) {
+                const newEl = document.createElement("div");
+                newEl.classList.add("film");
+                newEl.innerHTML =`<div class="film-name">${film.name}</div>`;
+                newEl.addEventListener("click", function () {
+                    newEl.innerHTML +=`<div class="film-comments">film clicked</div>`;
+                });
+                document.querySelector(".films").appendChild(newEl);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<section>
+    <div class="categories">
+<!--        <div class="category" onclick="onCategoryChoice('Юмор')">Юмор</div>-->
+<!--        <div class="category">Хоррор</div>-->
+    </div>
+    <div class="films">
+<!--        <div class="film">Один дома 1</div>-->
+<!--        <div class="film">Один дома 2</div>-->
+<!--        <div class="film">Один дома 3</div>-->
+    </div>
+</section>
+
+</body>
+</html>
