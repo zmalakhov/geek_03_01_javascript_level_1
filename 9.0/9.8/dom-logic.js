@@ -22,7 +22,15 @@ function getFilmComments(filmName) {
 }
 
 function renderCommentForm(film) {
-    
+    const content = `<div class="form-title">Добавьте отзыв фильму ${film.name}</div>
+    <div class="form-body">
+        <input class="form-author" placeholder="Ваше имя">
+        <input class="form-comment" placeholder="Ваш отзыв">
+    </div>`;
+    const form = document.createElement("div");
+    form.classList.add("comment-form");
+    form.innerHTML = content;
+    return form;
 }
 
 function openFilmCard(film, newEl) {
