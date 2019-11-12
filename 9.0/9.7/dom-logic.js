@@ -21,35 +21,44 @@ function getFilmComments(filmName) {
     return film.comments;
 }
 
+function openFilmCard(film, newEl) {
+    const comments = getFilmComments(film.name);
+    let s = "";
+    comments.forEach(c => {
+        s+= `<div class="film-comment"><span class="comment-author">${c.author}</span>: ${c.text}</div>`;
+    });
+    newEl.innerHTML +=`<div class="film-comments">${s}</div>`;
+    const addCommentButton = document.createElement("button");
+    addCommentButton.innerText = "Добавить отзыв";
+    newEl.appendChild(addCommentButton);
+}
+
+function onFilmClick(film, newEl) {
+    if (opennedFilms.hasOwnProperty( film.name ) && opennedFilms[film.name] ){
+        newEl.innerHTML =`<div class="film-name">${film.name}</div>`;
+        opennedFilms[film.name] = false;
+        // return ;
+    } else {
+        openFilmCard(film, newEl);
+        opennedFilms[film.name] = true;
+    }
+
+}
+
+function renderFilm(film) {
+    const newEl = document.createElement("div");
+    newEl.classList.add("film");
+    newEl.innerHTML =`<div class="film-name">${film.name}</div>`;
+    newEl.addEventListener("click", function () {
+        onFilmClick(film, newEl);
+    });
+    document.querySelector(".films").appendChild(newEl);
+}
+
 function onCategoryChoice(categoryName){
     document.querySelector(".films").innerHTML="";
     const films = getFilmsByCategory(categoryName);
     for (let film of films) {
-        const newEl = document.createElement("div");
-        newEl.classList.add("film");
-        newEl.innerHTML =`<div class="film-name">${film.name}</div>`;
-        newEl.addEventListener("click", function () {
-            if (opennedFilms.hasOwnProperty( film.name ) && opennedFilms[film.name] ){
-                newEl.innerHTML =`<div class="film-name">${film.name}</div>`;
-                opennedFilms[film.name] = false;
-                return ;
-            }
-
-            const comments = getFilmComments(film.name);
-
-            let s = "";
-            comments.forEach(c => {
-                s+= `<div class="film-comment"><span class="comment-author">${c.author}</span>: ${c.text}</div>`;
-            });
-
-            newEl.innerHTML +=`<div class="film-comments">${s}</div>`;
-
-            const addCommentButton = document.createElement("button");
-            addCommentButton.innerText = "Добавить отзыв";
-            newEl.appendChild(addCommentButton);
-
-            opennedFilms[film.name] = true;
-        });
-        document.querySelector(".films").appendChild(newEl);
+        renderFilm(film);
     }
 }
